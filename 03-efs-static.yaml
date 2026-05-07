@@ -14,19 +14,19 @@ spec:
     driver: efs.csi.aws.com
     volumeHandle: "fs-0e58fa2802fbe0d1e" # add your own volume
 
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: efs-static-pvc
-# spec:
-#   accessModes:
-#     - ReadWriteOnce
-#   storageClassName: ""
-#   volumeName: efs-static-pv
-#   resources:
-#     requests:
-#       storage: 2Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-static-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  volumeName: efs-static-pv
+  resources:
+    requests:
+      storage: 2Gi
 
 # ---
 # apiVersion: v1
