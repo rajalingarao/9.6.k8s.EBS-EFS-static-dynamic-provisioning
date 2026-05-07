@@ -12,19 +12,19 @@ spec:
     fsType: ext4
     volumeHandle: vol-019a91521473bff42    #vol-02eb0e09a0b20d7f6 #This volume in us-east-1c
 
-# ---
-# apiVersion: v1
-# kind: PersistentVolumeClaim
-# metadata:
-#   name: ebs-static-pvc
-# spec:
-#   storageClassName: "" #Empty string must be explicity set otherwise default StorageClass will be set.
-#   volumeName: ebs-static-pv
-#   accessModes:
-#     - ReadWriteOnce
-#   resources:
-#     requests:
-#       storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ebs-static-pvc
+spec:
+  storageClassName: "" #Empty string must be explicity set otherwise default StorageClass will be set.
+  volumeName: ebs-static-pv
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
 
 # ---
 # apiVersion: v1
