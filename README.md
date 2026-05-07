@@ -1,4 +1,3 @@
-
 # 1. ebs-static-volumes
 PersistentVolume(ebs-static-pv)
 PersistentVolumeClaim(ebs-static-pvc)
@@ -25,17 +24,19 @@ Pod   (efs-dynamic-nginx-pod)
 Service (efs-dynamic-lb)
 
 
-
-
-
 # EBS Static Provisioning Steps:
-
 1. We need to create the EBS volume in AWS.  create a volume in AWS Elastic Block Store, attach to region us-ease-1c. name the instance ebs-static. volume and ec2 should be same availabley zone.
 2. We need to install the EBS CSI drivers in EKS Cluster.
    kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.32"
 3. The worker nodes should have access to connect with EBS volumes. First Add IAM role to worker nodes and then Attach EBSCSI policy to the EC2 instance role.
 
-# 
+$kubectl get pods
+$kubectl exec -it ebs-static-nginx-pod -- bash
+$cd /usr/share/nginx/html/
+$echo "<h1>Hello from EBS Static volumes</h1>" > index.html
+
+
+
 
 # EBS Dynamic Provisioning  Steps:
 
@@ -47,7 +48,10 @@ Service (efs-dynamic-lb)
 $kubectl get sc
 $kubectl api-resources
 
-# 
+$kubectl get pods
+$kubectl exec -it ebs-dynamic-nginx-pod -- bash
+$cd /usr/share/nginx/html/
+$echo "<h1>Hello from EBS Dynamic volumes</h1>" > index.html
 
 # EFS Static Provisioning Steps:
 
