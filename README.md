@@ -71,6 +71,15 @@ $echo "<h1>Hello from EBS Dynamic volumes</h1>" > index.html
 
 # Note: EFS has one security group(sg-5fe…..dec2) and need to allow nodes security group(sg-0613dl…..7ec2). and open efs security group and edit inbound rules and add node security group.
 
+$kubectl get pods
+$kubectl exec -it efs-static-nginx-pod -- bash
+$cd /usr/share/nginx/html/
+$echo "<h1>Hello from EFS Static volumes</h1>" > index.html
+
+
+
+
+
 # EFS Dynamic Provisioning  Steps:
 
 1. Installing drivers
