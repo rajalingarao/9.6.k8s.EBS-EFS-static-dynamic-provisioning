@@ -97,6 +97,10 @@ $echo "<h1>Hello from EFS Static volumes</h1>" > index.html
 
 
 
+$kubectl get pods
+$kubectl exec -it efs-dynamic-nginx-pod -- bash
+$cd /usr/share/nginx/html/
+$echo "<h1>Hello from EFS Dynamic volumes</h1>" > index.html
 
 
 
